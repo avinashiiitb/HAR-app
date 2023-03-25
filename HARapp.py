@@ -24,7 +24,7 @@ categories = ['00','01','02','03','04','05','06','07','08','09','10']
 def predict(model, categories, image):
     image = np.array(image)
     image = np.expand_dims(image,axis=0)
-    img = tf.image.resize(image,(128,128))
+    img = tf.image.resize(img,(128,128))
     img = tf.cast(image,tf.float32)
     img = (img -70.55581) /86.36526
     
