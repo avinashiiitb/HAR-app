@@ -14,7 +14,7 @@ def load_image():
     else:
         return None
 def load_model():
-    model = tf.keras.models.load_model('model2_ 922_val_accuracy0.84810_val_loss1.00461.h5')
+    model = tf.keras.models.load_model('model_946_.h5')
 
     return model
 
