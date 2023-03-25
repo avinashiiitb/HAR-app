@@ -13,7 +13,7 @@ def load_image():
     else:
         return None
 def load_model():
-    model = tf.keras.models.load_model('C:/Users/avina/Downloads/model2_ 716_val_accuracy0.84177_val_loss1.06168.h5')
+    model = tf.keras.models.load_model('model2_ 922_val_accuracy0.84810_val_loss1.00461.h5')
 
     return model
 
