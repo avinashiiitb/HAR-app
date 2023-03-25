@@ -3,6 +3,7 @@ import PIL
 from PIL import Image
 import io
 import tensorflow as tf
+import numpy as np
 
 def load_image():
     upload_file = st.file_uploader(label ='pick a test image')
@@ -21,7 +22,7 @@ categories = ['00','01','02','03','04','05','06','07','08','09','10']
 
 
 def predict(model, categories, image):
-    print(image)
+    image = np.array(image)
     img = tf.cast(image,tf.float32)
     img/=255.0
     img = tf.image.resize(img,(128,128))
