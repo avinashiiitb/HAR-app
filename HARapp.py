@@ -11,7 +11,7 @@ def load_image():
     if upload_file is not None:
         image_data = upload_file.getvalue()
         st.image(image_data)
-        return image_data
+        return cv2.imread(io.BytesIO(image_data))
     else:
         return None
 def load_model():
