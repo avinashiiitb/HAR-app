@@ -11,7 +11,9 @@ def load_image():
     if upload_file is not None:
         image_data = upload_file.getvalue()
         st.image(image_data)
-        return cv2.imread(io.BytesIO(image_data))
+        file_bytes = np.asarray(bytearray(upload_file.read()),dtype = np.float)
+        opencv_image=cv2.imdecode(file_bytes,1)
+        return opencv_image
     else:
         return None
 def load_model():
@@ -23,7 +25,7 @@ categories = ['00','01','02','03','04','05','06','07','08','09','10']
 
 
 def predict(model, categories, image):
-    image = np.array(image)
+    #image = np.array(image)
     image = np.expand_dims(image,axis=0)
     img = tf.image.resize(image,(128,128))
     #img = tf.cast(img,tf.float32)
