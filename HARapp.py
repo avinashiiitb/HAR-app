@@ -5,6 +5,7 @@ import io
 import tensorflow as tf
 import numpy as np
 import  cv2
+import pandas as pd
 
 def load_image():
     upload_file = st.file_uploader(label ='pick a test image')
@@ -45,7 +46,10 @@ def predict(model, categories, image):
      #   st.write(categories[i],prob[i])
 
     st.write(prob) 
-    st.bar_chart(prob,x=categories, y=prob)
+    chart_data = pd.DataFrame(
+    prob,index=categories,
+   )
+    st.bar_chart(chart_data)
 
 
 
