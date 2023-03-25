@@ -36,7 +36,7 @@ def predict(model, categories, image):
 
     
     for i in range(prob.shape[0]):
-        st.write(categories[prob[i]])
+        st.write(categories[i],prob[i])
 
 
 
