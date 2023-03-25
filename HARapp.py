@@ -25,7 +25,7 @@ def predict(model, categories, image):
     image = np.array(image)
     image = np.expand_dims(image,axis=0)
     img = tf.cast(image,tf.float32)
-    img/=255.0
+    img = (img -70.55581) /86.36526
     
     img = tf.image.resize(img,(128,128))
 
