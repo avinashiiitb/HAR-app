@@ -45,7 +45,7 @@ def predict(model, categories, image):
      #   st.write(categories[i],prob[i])
 
     st.write(prob) 
-
+    st.bar_chart(prob)
 
 
 
