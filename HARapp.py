@@ -13,7 +13,7 @@ def load_image():
         st.image(image_data)
         #file_bytes = np.asarray(bytearray(upload_file.read())).astype(np.float32)#, dtype=np.float32)
         file_bytes=np.asarray(bytearray(upload_file.read()), dtype=np.uint8)
-        opencv_image=cv2.imdecode(file_bytes,0)
+        opencv_image=cv2.imdecode(file_bytes,1)
         return opencv_image
     else:
         return None
@@ -26,7 +26,8 @@ categories = ['00','01','02','03','04','05','06','07','08','09','10']
 
 
 def predict(model, categories, image):
-    image = np.array(image ,dtype = np.float32)
+    #image = np.array(image ,dtype = np.float32)
+    image = tf.cast(image,tf.float32)
     image = np.expand_dims(image,axis=0)
     img = tf.image.resize(image,(128,128))
     #img = tf.cast(img,tf.float32)
