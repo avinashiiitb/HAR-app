@@ -27,7 +27,7 @@ def predict(model, categories, image):
     img = tf.cast(image,tf.float32)
     img/=255.0
     
-    #img = tf.image.resize(img,(128,128))
+    img = tf.image.resize(img,(128,128))
 
 
 
