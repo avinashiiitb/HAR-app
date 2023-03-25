@@ -4,13 +4,14 @@ from PIL import Image
 import io
 import tensorflow as tf
 import numpy as np
+import  cv2
 
 def load_image():
     upload_file = st.file_uploader(label ='pick a test image')
     if upload_file is not None:
         image_data = upload_file.getvalue()
         st.image(image_data)
-        return Image.open(io.BytesIO(image_data))
+        return cv2.imread(image_data))
     else:
         return None
 def load_model():
