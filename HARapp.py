@@ -11,7 +11,7 @@ def load_image():
     if upload_file is not None:
         image_data = upload_file.getvalue()
         st.image(image_data)
-        file_bytes = np.asarray(bytearray(upload_file.read()), dtype=np.uint8)
+        file_bytes = np.asarray(bytearray(upload_file.read()), dtype=np.float32)
         opencv_image=cv2.imdecode(file_bytes,1)
         return opencv_image
     else:
