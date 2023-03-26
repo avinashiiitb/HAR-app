@@ -72,7 +72,7 @@ def main():
     st.title('Human Activity Recognition Using Spectrograms')
     model = load_model()
     image = load_image()
-    result = st.button('Run on image')
+    result = st.button('Run inference on image')
     if result:
         st.write('Probability Distribution')
         predict(model, categories, image)
