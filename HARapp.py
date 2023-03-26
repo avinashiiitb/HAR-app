@@ -43,6 +43,7 @@ def predict(model, categories, image):
     
    
     prob = np.array(prob)
+    st.write(prob)
     prob = np.reshape(prob,(prob.shape[1],))
 
 
