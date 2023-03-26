@@ -49,7 +49,7 @@ def predict(model, categories, image):
     chart_data = pd.DataFrame(
     prob,index=categories,
    )
-    st.area_chart(chart_data)
+    st.area_chart(prob)
 
 
 
