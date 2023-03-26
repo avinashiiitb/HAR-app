@@ -53,8 +53,8 @@ def predict(model, categories, image):
     d,
     x="classes",
     y="probability of each class",
-    color="probability of each class",
-    text="Count",)
+    color="classes",
+    text="probability of each class",)
 
     st.plotly_chart(fig)
     
