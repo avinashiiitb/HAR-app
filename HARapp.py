@@ -46,21 +46,15 @@ def predict(model, categories, image):
 
 
     st.write(prob) 
+    d= {'probability of each class' : prob , 'classes':categories}
+    chart_data = pd.DataFrame(d)
     
-    chart_data = pd.DataFrame(
-    prob,
-    columns=categories)
     
-    fig = px.bar(
-    chart_data,
-    #x="categories",
-    y="probabilities",
     
-)
-
+    
   
     st.bar_chart(chart_data)
-    st.plotly_chart(fig)
+   
 
 
 
