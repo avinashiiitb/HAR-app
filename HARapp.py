@@ -12,7 +12,7 @@ def load_image():
     if upload_file is not None:
         image_data = upload_file.getvalue()
         st.image(image_data)
-        #file_bytes = np.asarray(bytearray(upload_file.read())).astype(np.float32)#, dtype=np.float32)
+        
         file_bytes=np.asarray(bytearray(upload_file.read()), dtype=np.uint8)
         opencv_image=cv2.imdecode(file_bytes,1)
         return opencv_image
@@ -42,8 +42,7 @@ def predict(model, categories, image):
     
     st.write(prob.shape)
     prob = np.array(prob)
-    #for i in range(prob.shape[0]):
-     #   st.write(categories[i],prob[i])
+
 
     st.write(prob) 
     #chart_data = pd.DataFrame({
@@ -55,7 +54,8 @@ def predict(model, categories, image):
     chart_data = pd.DataFrame(
     prob,
     columns=['00','01','02','03','04','05','06','07','08','09','10'])
-    st.bar_chart(chart_data)
+    #st.bar_chart(chart_data)
+    st.line_chart(chart_data)
 
 
 
