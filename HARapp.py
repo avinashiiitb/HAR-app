@@ -52,7 +52,10 @@ def predict(model, categories, image):
     x='a',
     y='b')
     st.altair_chart(c, use_container_width=True)
-    #st.bar_chart(chart_data)
+    chart_data = pd.DataFrame(
+    prob,
+    columns=['00','01','02','03','04','05','06','07','08','09','10'])
+    st.bar_chart(chart_data)
 
 
 
