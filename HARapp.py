@@ -52,7 +52,7 @@ def predict(model, categories, image):
     columns=categories)
     
     fig = px.bar(
-    chart_data
+    chart_data,
     #x="categories",
     y="probabilities",
     
