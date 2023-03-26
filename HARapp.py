@@ -52,10 +52,10 @@ def predict(model, categories, image):
     chart_data = pd.DataFrame(d)
     fig = px.bar(
     d,
-    x="classes",
-    y="probability of each class",
-    color="classes",
-    text="probability of each class",)
+    x="Classes",
+    y="Probability of each class",
+    color="Classes",
+    text="Probability of each class",)
 
     st.plotly_chart(fig)
 
