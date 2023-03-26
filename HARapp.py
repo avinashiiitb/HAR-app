@@ -6,6 +6,7 @@ import tensorflow as tf
 import numpy as np
 import  cv2
 import pandas as pd
+import plotly.express as px
 
 def load_image():
     upload_file = st.file_uploader(label ='pick a test image')
@@ -48,10 +49,18 @@ def predict(model, categories, image):
     
     chart_data = pd.DataFrame(
     prob,
-    columns=['00','01','02','03','04','05','06','07','08','09','10'])
+    columns='categories')
     
+    fig = px.bar(
+    chart_data,
+    x="categories",
+    y="probabilities",
     
+)
+
+  
     st.bar_chart(chart_data)
+    st.plotly_chart(fig)
 
 
 
