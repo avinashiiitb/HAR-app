@@ -43,11 +43,12 @@ def predict(model, categories, image):
     
    
     prob = np.array(prob)
+   
     st.write(prob)
     prob = np.reshape(prob,(prob.shape[1],))
 
 
-     
+    st.write('Bar Graph of Probability') 
     d= {'Probability of each class' : prob , 'Classes':['00','01','02','03','04','05','06','07','08','09','10']}
     chart_data = pd.DataFrame(d)
     fig = px.bar(
@@ -58,6 +59,11 @@ def predict(model, categories, image):
     text="Probability of each class",)
 
     st.plotly_chart(fig)
+    
+    st.write('Pie Chart of Probability')
+    fig = px.pie(d, values='Probability of each class', names='Classes')
+    st.plotly_chart(fig)
+
 
 
 
