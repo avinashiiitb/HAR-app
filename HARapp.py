@@ -16,9 +16,10 @@ def save_uploadedfile(uploadedfile):
 
 def load_image():
     upload_file = st.file_uploader(label ='Upload a test image')
-    save_uploadedfile(upload_file)
+   
     if upload_file is not None:
         image_data = upload_file.getvalue()
+        save_uploadedfile(upload_file)
         st.image(image_data)
         
         file_bytes=np.asarray(bytearray(upload_file.read()), dtype=np.uint8)
