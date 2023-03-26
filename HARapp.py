@@ -67,7 +67,7 @@ def main():
     image = load_image()
     result = st.button('Run on image')
     if result:
-        st.write('Calculating results...')
+        st.write('Probability Distribution')
         predict(model, categories, image)
 
 
