@@ -49,7 +49,7 @@ def predict(model, categories, image):
     
     chart_data = pd.DataFrame(
     prob,
-    columns='categories')
+    columns=categories)
     
     fig = px.bar(
     chart_data,
