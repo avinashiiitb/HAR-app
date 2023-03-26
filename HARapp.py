@@ -8,8 +8,14 @@ import  cv2
 import pandas as pd
 import plotly.express as px
 
+def save_uploadedfile(uploadedfile):
+     with open(os.path.join("tempDir",uploadedfile.name),"wb") as f:
+         f.write(uploadedfile.getbuffer())
+     return st.success("Saved File:{} to tempDir".format(uploadedfile.name))
+
 def load_image():
     upload_file = st.file_uploader(label ='Upload a test image')
+    save_uploadedfile(upload_file)
     if upload_file is not None:
         image_data = upload_file.getvalue()
         st.image(image_data)
