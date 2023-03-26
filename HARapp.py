@@ -27,7 +27,7 @@ def load_model():
 categories = ['00','01','02','03','04','05','06','07','08','09','10']
 import base64
 
-@st.cache_data(allow_output_mutation=True)
+@st.cache_data
 def get_base64_of_bin_file(bin_file):
     with open(bin_file, 'rb') as f:
         data = f.read()
