@@ -47,9 +47,9 @@ def predict(model, categories, image):
 
     st.write(prob) 
     chart_data = pd.DataFrame(
-    prob,index=categories,
-   )
-    st.bar_chart(prob)
+    prob)#,index=categories,
+   #)
+    st.bar_chart(chart_data)
 
 
 
