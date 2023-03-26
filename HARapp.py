@@ -47,9 +47,13 @@ def predict(model, categories, image):
 
     st.write(prob) 
     chart_data = pd.DataFrame(
-    prob)#,index=categories,
+    'a':prob,'b': ['00','01','02','03','04','05','06','07','08','09','10'])#,index=categories,
    #)
-    st.bar_chart(chart_data)
+    c = alt.Chart(source).mark_bar().encode(
+    x='a',
+    y='b')
+    st.altair_chart(c, use_container_width=True)
+    #st.bar_chart(chart_data)
 
 
 
