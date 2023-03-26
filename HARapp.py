@@ -46,7 +46,7 @@ def predict(model, categories, image):
 
 
     st.write(prob) 
-    d= {'probability of each class' : prob , 'classes':categories}
+    d= {'probability of each class' : prob , 'classes':['00','01','02','03','04','05','06','07','08','09','10']}
     chart_data = pd.DataFrame(d)
     
     
