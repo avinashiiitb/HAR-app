@@ -9,7 +9,7 @@ import pandas as pd
 import plotly.express as px
 
 def load_image():
-    upload_file = st.file_uploader(label ='pick a test image')
+    upload_file = st.file_uploader(label ='Upload a test image')
     if upload_file is not None:
         image_data = upload_file.getvalue()
         st.image(image_data)
@@ -62,7 +62,7 @@ def predict(model, categories, image):
 
 
 def main():
-    st.title('Custom model demo')
+    st.title('Human Activity Recognition Using Spectrograms')
     model = load_model()
     image = load_image()
     result = st.button('Run on image')
