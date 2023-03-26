@@ -41,7 +41,7 @@ def predict(model, categories, image):
     prob = model.predict(img)
     
 
-    
+    prob = np.array(prob)
     #for i in range(prob.shape[0]):
      #   st.write(categories[i],prob[i])
 
