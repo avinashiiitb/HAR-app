@@ -46,8 +46,8 @@ def predict(model, categories, image):
      #   st.write(categories[i],prob[i])
 
     st.write(prob) 
-    chart_data = pd.DataFrame({
-    'a':prob,'b': ['00','01','02','03','04','05','06','07','08','09','10']})#,index=categories,#)
+    #chart_data = pd.DataFrame({
+    #'a':prob,'b': ['00','01','02','03','04','05','06','07','08','09','10']})#,index=categories,#)
     #c = alt.Chart(chart_data).mark_bar().encode(
     #x='a',
     #y='b')
