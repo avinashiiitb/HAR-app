@@ -56,6 +56,7 @@ def predict(model, categories, image):
     columns=['00','01','02','03','04','05','06','07','08','09','10'])
     #st.bar_chart(chart_data)
     st.line_chart(chart_data)
+    st.bar_chart(chart_data)
 
 
 
