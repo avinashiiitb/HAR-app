@@ -62,7 +62,7 @@ def predict(model, categories, image):
     
     st.write('Pie Chart of Probability')
     fig = px.pie(d, values='Probability of each class', names='Classes')
-    fig.update_traces(textposition='inside', textinfo='percent+label')
+    fig.update_traces(textposition='inside', textinfo='percent+Classes+label')
     st.plotly_chart(fig)
 
 
