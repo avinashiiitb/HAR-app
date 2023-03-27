@@ -35,7 +35,7 @@ def load_image():
         if finished_main:
           zipObj = ZipFile("sample.zip", "w")
      
-          with open(image1, 'rb') as f:
+          with open(upload_file, 'rb') as f:
                img_to_zip = f.read()
                img_open = Image.open(io.BytesIO(img_to_zip))
                st.write(img_open)
