@@ -8,6 +8,7 @@ import numpy as np
 import  cv2
 import pandas as pd
 import plotly.express as px
+import zipfile
 
 def save_uploadedfile(uploadedfile):
      with open(os.path.join(".tempDir/",uploadedfile.name),"wb") as f:
