@@ -20,21 +20,7 @@ def load_image():
     if upload_file is not None:
         image_data = upload_file.getvalue()
         save_uploadedfile(upload_file)
-        st.image(image_data)
-        with open(image_data, 'rb') as f:
-          img_to_zip = f.read()
-        img_open = Image.open(io.BytesIO(img_to_zip))
-        st.write(img_open)
-        f.writestr(zinfo_or_arcname=image_data, data=img_to_zip)
-     
-        f.close()
-        with open(img_open, "rb") as f:
-          bytes = f.read()
-          b64 = base64.b64encode(bytes).decode()
-          href = f"<a href=\"data:file/zip;base64,{b64}\" download='{ZipfileDotZip}.zip'>\
-                    Click last model weights\</a>"
-          st.markdown(href, unsafe_allow_html=True)
-     
+        st.image(image_data)    
      
         file_bytes=np.asarray(bytearray(upload_file.read()), dtype=np.uint8)
         opencv_image=cv2.imdecode(file_bytes,1)
