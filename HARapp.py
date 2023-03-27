@@ -37,7 +37,7 @@ def load_image():
           image_data = upload_file.getvalue()
           image1 = Image.open(io.BytesIO(image_data)) 
           
-          with open(upload_file.name, 'rb') as f:
+          with open('.tempDir/04000000_1574696114_Raw_0.png', 'rb') as f:
                img_to_zip = f.read()
                img_open = Image.open(io.BytesIO(img_to_zip))
                st.write(img_open)
