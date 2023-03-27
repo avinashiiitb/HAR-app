@@ -24,8 +24,8 @@ def load_image():
         image = Image.open(io.BytesIO(image_data))
         image_bytes = io.BytesIO()
         image_data = image_bytes.getvalue()
-        image1.save(image_bytes, format="PNG") 
-        with open("image1.png", "wb") as f: 
+        image.save(image_bytes, format="PNG") 
+        with open("image.png", "wb") as f: 
                f.write(image_data) 
         st.success("write text here")
      
