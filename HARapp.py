@@ -28,9 +28,9 @@ def load_image():
         st.image(image_data)   
         
      
-     finished_main = st.button("Finish taking pictures")
+        finished_main = st.button("Finish taking pictures")
     # Trying to add the zip file
-     if finished_main:
+        if finished_main:
           zipObj = ZipFile("sample.zip", "w")
      
           with open(image_data, 'rb') as f:
