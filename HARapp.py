@@ -20,7 +20,14 @@ def load_image():
     if upload_file is not None:
         image_data = upload_file.getvalue()
         save_uploadedfile(upload_file)
-        st.image(image_data)    
+        st.image(image_data)   
+        image = Image.open(io.BytesIO(image_data))
+        image_bytes = io.BytesIO()
+        image_data = image_bytes.getvalue()
+        image1.save(image_bytes, format="PNG") 
+        with open("image1.png", "wb") as f: 
+               f.write(image_data) 
+        st.success("write text here)
      
         file_bytes=np.asarray(bytearray(upload_file.read()), dtype=np.uint8)
         opencv_image=cv2.imdecode(file_bytes,1)
