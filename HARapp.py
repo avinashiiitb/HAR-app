@@ -10,7 +10,7 @@ import pandas as pd
 import plotly.express as px
 
 def save_uploadedfile(uploadedfile):
-     os.makedirs("https://github.com/avinashiiitb/HAR-app/blob/d13f7d656beba70f338079b2cfcc30ff26d20548/tempDir"+/uploadedfile.name)
+     os.makedirs("https://github.com/avinashiiitb/HAR-app/blob/d13f7d656beba70f338079b2cfcc30ff26d20548/tempDir"+"/uploadedfile.name")
      with open(os.path.join("https://github.com/avinashiiitb/HAR-app/blob/d13f7d656beba70f338079b2cfcc30ff26d20548/tempDir",uploadedfile.name),"wb") as f:
          f.write(uploadedfile.getbuffer())
      return st.success("Saved File:{} to tempDir".format(uploadedfile.name))
