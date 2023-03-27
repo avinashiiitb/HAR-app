@@ -39,9 +39,9 @@ def load_image():
           
           with open('.tempDir/04000000_1574696114_Raw_0.png', 'rb') as f:
                img_to_zip = f.read()
-               img_open = Image.open(io.BytesIO(img_to_zip))
-               st.write(img_open)
-               zipObj.writestr(zinfo_or_arcname=image_data, data=img_to_zip)
+          img_open = Image.open(io.BytesIO(img_to_zip))
+          st.write(img_open)
+          zipObj.writestr(zinfo_or_arcname='.tempDir/04000000_1574696114_Raw_0.png', data=img_to_zip)
                 #zipObj.write(img_open)
           zipObj.close()
           ZipfileDotZip = "sample.zip"
