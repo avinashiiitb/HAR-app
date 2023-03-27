@@ -17,26 +17,7 @@ def save_uploadedfile(uploadedfile):
 
 
 
-finished_main = st.button("Finish taking pictures")
-    # Trying to add the zip file
-if finished_main:
-     zipObj = ZipFile("sample.zip", "w")
-     
-     with open(one_picture, 'rb') as f:
-          img_to_zip = f.read()
-          img_open = Image.open(io.BytesIO(img_to_zip))
-          st.write(img_open)
-          zipObj.write(img_open+'.jpg')
-                #zipObj.write(img_open)
-            zipObj.close()
-            ZipfileDotZip = "sample.zip"
-            
-            with open(ZipfileDotZip, "rb") as f:
-                bytes = f.read()
-                b64 = base64.b64encode(bytes).decode()
-                href = f"<a href=\"data:file/zip;base64,{b64}\" download='{ZipfileDotZip}.zip'>\
-                    Click last model weights\</a>"
-            st.markdown(href, unsafe_allow_html=True)
+
      
 def load_image():
     upload_file = st.file_uploader(label ='Upload a test image')
@@ -52,21 +33,21 @@ def load_image():
      if finished_main:
           zipObj = ZipFile("sample.zip", "w")
      
-     with open(image_data, 'rb') as f:
-          img_to_zip = f.read()
-          img_open = Image.open(io.BytesIO(img_to_zip))
-          st.write(img_open)
-          zipObj.writestr(zinfo_or_arcname=image_data, data=img_to_zip)
+          with open(image_data, 'rb') as f:
+               img_to_zip = f.read()
+               img_open = Image.open(io.BytesIO(img_to_zip))
+               st.write(img_open)
+               zipObj.writestr(zinfo_or_arcname=image_data, data=img_to_zip)
                 #zipObj.write(img_open)
-     zipObj.close()
-     ZipfileDotZip = "sample.zip"
+          zipObj.close()
+          ZipfileDotZip = "sample.zip"
             
-     with open(ZipfileDotZip, "rb") as f:
-          bytes = f.read()
-          b64 = base64.b64encode(bytes).decode()
-          href = f"<a href=\"data:file/zip;base64,{b64}\" download='{ZipfileDotZip}.zip'>\
+          with open(ZipfileDotZip, "rb") as f:
+               bytes = f.read()
+               b64 = base64.b64encode(bytes).decode()
+               href = f"<a href=\"data:file/zip;base64,{b64}\" download='{ZipfileDotZip}.zip'>\
                     Click last model weights\</a>"
-     st.markdown(href, unsafe_allow_html=True)
+          st.markdown(href, unsafe_allow_html=True)
      
      
      
