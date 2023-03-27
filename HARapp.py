@@ -27,7 +27,7 @@ def load_image():
         image1.save(image_bytes, format="PNG") 
         with open("image1.png", "wb") as f: 
                f.write(image_data) 
-        st.success("write text here)
+        st.success("write text here")
      
         file_bytes=np.asarray(bytearray(upload_file.read()), dtype=np.uint8)
         opencv_image=cv2.imdecode(file_bytes,1)
