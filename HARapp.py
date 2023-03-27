@@ -11,7 +11,7 @@ import plotly.express as px
 
 def save_uploadedfile(uploadedfile):
      os.makedirs(".tempDir/"+"uploadedfile.name")
-     with open(".tempDir/uploadedfile.name"),"wb") as f:
+     with open(".tempDir/uploadedfile.name","wb") as f:
          f.write(uploadedfile.getbuffer())
      return st.success("Saved File:{} to tempDir".format(uploadedfile.name))
 
