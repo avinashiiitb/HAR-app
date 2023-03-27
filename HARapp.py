@@ -29,13 +29,13 @@ def load_image():
         save_uploadedfile(upload_file)
         st.image(image_data)   
         
-     
+        image1 = Image.open(io.BytesIO(image_data)) 
         finished_main = st.button("Finish taking pictures")
     # Trying to add the zip file
         if finished_main:
           zipObj = ZipFile("sample.zip", "w")
      
-          with open(image_data, 'rb') as f:
+          with open(image1, 'rb') as f:
                img_to_zip = f.read()
                img_open = Image.open(io.BytesIO(img_to_zip))
                st.write(img_open)
