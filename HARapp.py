@@ -11,10 +11,7 @@ import plotly.express as px
 
 def save_uploadedfile(uploadedfile):
      os.makedirs(".tempDir/"+uploadedfile.name)
-     with open(os.path.join(".tempDir/",uploadedfile.name)) as f:
-         f.write(uploadedfile.getbuffer())
-     return st.success("Saved File:{} to tempDir".format(uploadedfile.name))
-
+     
 def load_image():
     upload_file = st.file_uploader(label ='Upload a test image')
    
