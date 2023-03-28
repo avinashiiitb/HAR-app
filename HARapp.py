@@ -154,6 +154,7 @@ def predict(model, categories, image):
     text="Probability of each class",)
     
     plt.savefig(fn,dpi=100)
+    plt.show()
     with open(fn, "rb") as img:
         btn = st.download_button(
         label="Download image",
