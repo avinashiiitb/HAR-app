@@ -30,11 +30,12 @@ def load_image():
         save_uploadedfile(upload_file)
         st.image(image_data)   
         with st.form("form"):
+          name = st.text_input("Enter Class number for activity recognition")
           submitted = st.form_submit_button("Store in database")
         deta = Deta(st.secrets["data_key"])
         db = deta.Base("HAR-db")
         if submitted:
-          db.put({"Image": str(image_data)})
+          db.put({"name": name})
         st.write("Here's everything stored in the database:")
         db_content = db.fetch().items
         st.write(db_content)
