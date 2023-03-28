@@ -137,6 +137,7 @@ def predict(model, categories, image):
     st.write('Bar Graph of Probability') 
     d= {'Probability of each class' : prob , 'Classes':['00','01','02','03','04','05','06','07','08','09','10']}
     chart_data = pd.DataFrame(d)
+    fig_RFC_scatter, ax = plt.subplots(1,1, figsize = (5,4))
     fig = px.bar(
     d,
     x="Classes",
@@ -146,12 +147,7 @@ def predict(model, categories, image):
     fn = 'bargraph.png'
     #fig=plt.figure()
     st.plotly_chart(fig)
-    px.bar(
-    d,
-    x="Classes",
-    y="Probability of each class",
-    color="Classes",
-    text="Probability of each class",)
+    
     
     plt.savefig(fn,dpi=100)
     plt.show()
