@@ -143,7 +143,17 @@ def predict(model, categories, image):
     x="Classes",
     y="Probability of each class",
     color="Classes",
-    text="Probability of each class",)
+    text="Probability of each class",color_discrete_sequence=[
+        "#0068c9",
+        "#83c9ff",
+        "#ff2b2b",
+        "#ffabab",
+        "#29b09d",
+        "#7defa1",
+        "#ff8700",
+        "#ffd16a",
+        "#6d3fc0",
+        "#d5dae5"],)
     fn = 'bargraph.png'
     #fig=plt.figure()
     st.plotly_chart(fig)
