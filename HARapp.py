@@ -1,4 +1,5 @@
 import streamlit as st
+from deta import Deta
 import PIL
 from PIL import Image
 import io
@@ -28,7 +29,16 @@ def load_image():
         image_data = upload_file.getvalue()
         save_uploadedfile(upload_file)
         st.image(image_data)   
-        
+        with st.form("form"):
+          submitted = st.form_submit_button("Store in database")
+        deta = Deta(st.secrets["data_key"])
+        db = deta.Base("HAR-db")
+        if submitted:
+          db.put(image_data)
+        st.write("Here's everything stored in the database:")
+        db_content = db.fetch().items
+        st.write(db_content)
+           
         
         finished_main = st.button("Press to prepare for image file download")
     # Trying to add the zip file
