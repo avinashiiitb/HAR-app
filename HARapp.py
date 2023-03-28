@@ -14,13 +14,21 @@ import zipfile
 from zipfile import *
 import json
 
-     
+
+def save_uploadedfile(uploadedfile):
+     with open(os.path.abspath(os.path.join(".tempDir/",uploadedfile.name)),"wb") as f:
+         f.write((uploadedfile).getbuffer())
+     return st.success("Saved File:{} to tempDir".format(uploadedfile.name))
+
+
+
 def load_image():
     upload_file = st.file_uploader(label ='Upload a test image')
    
     if upload_file is not None:
         image_data = upload_file.getvalue()
-       
+        save_uploadedfile(upload_file)
+
         st.image(image_data) 
         
         data = {}
