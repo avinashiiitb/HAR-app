@@ -11,6 +11,7 @@ import pandas as pd
 import plotly.express as px
 import zipfile
 from zipfile import *
+import json
 
 def save_uploadedfile(uploadedfile):
      with open(os.path.abspath(os.path.join(".tempDir/",uploadedfile.name)),"wb") as f:
@@ -28,14 +29,20 @@ def load_image():
     if upload_file is not None:
         image_data = upload_file.getvalue()
         save_uploadedfile(upload_file)
-        st.image(image_data)   
+        st.image(image_data) 
+        image1 = Image.open(io.BytesIO(image_data))
+        data = {}
+        with open(os.path.join(".tempDir/",upload_file.name), 'rb') as file:
+          img = file.read()
+        data['img'] = base64.encodebytes(img).decode('utf-8')
+        json.dumps(data)
         with st.form("form"):
           name = st.text_input("Enter Class number for activity recognition")
           submitted = st.form_submit_button("Store in database")
         deta = Deta(st.secrets["data_key"])
         db = deta.Base("HAR-db")
         if submitted:
-          db.put({"name": name})
+          db.put({"name": name,'image':data})
         st.write("Here's everything stored in the database:")
         db_content = db.fetch().items
         st.write(db_content)
