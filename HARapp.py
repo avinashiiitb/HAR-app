@@ -144,6 +144,15 @@ def predict(model, categories, image):
     text="Probability of each class",)
     
     st.plotly_chart(fig)
+    fn = 'bargraph.png'
+    cv2.imwrite(fn, fig)
+    with open(fn, "rb") as img:
+     btn = st.download_button(
+        label="Download image",
+        data=img,
+        file_name=fn,
+        mime="image/png"
+    )
     
     st.write('Pie Chart of Probability')
     fig = px.pie(d, values='Probability of each class', names='Classes')
