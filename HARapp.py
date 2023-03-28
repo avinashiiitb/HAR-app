@@ -1,5 +1,6 @@
 import streamlit as st
 from deta import Deta
+import matplotlib.pyplot as plt
 import PIL
 from PIL import Image
 import io
@@ -145,7 +146,7 @@ def predict(model, categories, image):
     
     st.plotly_chart(fig)
     fn = 'bargraph.png'
-    cv2.imwrite(fn, fig)
+    plt.savefig(fn)
     with open(fn, "rb") as img:
      btn = st.download_button(
         label="Download image",
