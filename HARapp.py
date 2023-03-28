@@ -14,24 +14,15 @@ import zipfile
 from zipfile import *
 import json
 
-def save_uploadedfile(uploadedfile):
-     with open(os.path.abspath(os.path.join(".tempDir/",uploadedfile.name)),"wb") as f:
-         f.write((uploadedfile).getbuffer())
-     return st.success("Saved File:{} to tempDir".format(uploadedfile.name))
-
-
-
-
-
      
 def load_image():
     upload_file = st.file_uploader(label ='Upload a test image')
    
     if upload_file is not None:
         image_data = upload_file.getvalue()
-        save_uploadedfile(upload_file)
+       
         st.image(image_data) 
-        image1 = Image.open(io.BytesIO(image_data))
+        
         data = {}
         with open(os.path.join(".tempDir/",upload_file.name), 'rb') as file:
           img = file.read()
@@ -39,7 +30,7 @@ def load_image():
         json.dumps(data)
         with st.form("form"):
           name = st.text_input("Enter Class number for activity recognition")
-          submitted = st.form_submit_button("Store in database")
+          submitted = st.form_submit_button("For storing in deta-db,press here ")
         deta = Deta(st.secrets["data_key"])
         db = deta.Base("HAR-db")
         if submitted:
@@ -137,7 +128,7 @@ def predict(model, categories, image):
     st.write('Bar Graph of Probability') 
     d= {'Probability of each class' : prob , 'Classes':['00','01','02','03','04','05','06','07','08','09','10']}
     chart_data = pd.DataFrame(d)
-    fig_RFC_scatter, ax = plt.subplots(1,1, figsize = (5,4))
+    
     fig = px.bar(
     d,
     x="Classes",
@@ -155,7 +146,7 @@ def predict(model, categories, image):
         "#6d3fc0",
         "#d5dae5"],)
     fn = 'bargraph.png'
-    #fig=plt.figure()
+    
     st.plotly_chart(fig)
     
     buffer = io.StringIO()
@@ -163,9 +154,9 @@ def predict(model, categories, image):
     html_bytes = buffer.getvalue().encode()
     
     st.download_button(
-            label='Download HTML',
+            label='Download Bar Graph HTML',
             data=html_bytes,
-            file_name='stuff.html',
+            file_name='bargraph.html',
             mime='text/html'
         )
     
@@ -173,6 +164,17 @@ def predict(model, categories, image):
     fig = px.pie(d, values='Probability of each class', names='Classes')
     fig.update_traces(textposition='inside', textinfo='percent+label')
     st.plotly_chart(fig)
+     
+    buffer = io.StringIO()
+    fig.write_html(buffer, include_plotlyjs='cdn')
+    html_bytes = buffer.getvalue().encode()
+    
+    st.download_button(
+            label='Download Pie chart HTML',
+            data=html_bytes,
+            file_name='piechart.html',
+            mime='text/html'
+        )
     
 
 
