@@ -156,7 +156,7 @@ def predict(model, categories, image):
     with open(fn, "rb") as img:
         btn = st.download_button(
         label="Download image",
-        data=fig,
+        data=img,
         file_name=fn,
         mime="image/png"
     )
