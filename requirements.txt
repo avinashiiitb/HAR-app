@@ -5,3 +5,4 @@ pandas == 1.5.3
 seaborn == 0.12.2
 plotly == 5.13.1
 plotly-express == 0.4.1
+deta == 1.1.0
