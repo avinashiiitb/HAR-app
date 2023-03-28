@@ -147,10 +147,10 @@ def predict(model, categories, image):
     st.plotly_chart(fig)
     fn = 'bargraph.png'
     plt.savefig(fn)
-    with open(fn, "rb") as img:
-     btn = st.download_button(
+    #with open(fn, "rb") as img:
+    btn = st.download_button(
         label="Download image",
-        data=img,
+        data=fig,
         file_name=fn,
         mime="image/png"
     )
