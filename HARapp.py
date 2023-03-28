@@ -30,7 +30,7 @@ def load_image():
         st.image(image_data)   
         
         
-        finished_main = st.button("Finish taking pictures")
+        finished_main = st.button("Press to prepare for image file download")
     # Trying to add the zip file
         if finished_main:
           zipObj = ZipFile("sample.zip", "w")
@@ -42,7 +42,7 @@ def load_image():
           img_open = Image.open(io.BytesIO(img_to_zip))
           st.write(img_open)
           zipObj.writestr(zinfo_or_arcname='os.path.join(".tempDir/",upload_file.name)', data=img_to_zip)
-                #zipObj.write(img_open)
+                
           zipObj.close()
           ZipfileDotZip = "sample.zip"
             
@@ -50,7 +50,7 @@ def load_image():
                bytes = f.read()
                b64 = base64.b64encode(bytes).decode()
                href = f"<a href=\"data:file/zip;base64,{b64}\" download='{ZipfileDotZip}.zip'>\
-                    Click last model weights\</a>"
+                    Click for image download"
           st.markdown(href, unsafe_allow_html=True)
      
      
