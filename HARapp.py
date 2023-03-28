@@ -143,11 +143,12 @@ def predict(model, categories, image):
     y="Probability of each class",
     color="Classes",
     text="Probability of each class",)
-    
-    st.plotly_chart(fig)
-    
     fn = 'bargraph.png'
-    plt.savefig(fn)
+    fig=plt.figure()
+    st.plotly_chart(fig)
+    #fig.savefig('line_plot.png', dpi=100)
+    
+    fig.savefig(fn,dpi=100)
     with open(fn, "rb") as img:
         btn = st.download_button(
         label="Download image",
