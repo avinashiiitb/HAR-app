@@ -34,7 +34,7 @@ def load_image():
         deta = Deta(st.secrets["data_key"])
         db = deta.Base("HAR-db")
         if submitted:
-          db.put({"Image": image_data})
+          db.put({"Image": str(image_data)})
         st.write("Here's everything stored in the database:")
         db_content = db.fetch().items
         st.write(db_content)
