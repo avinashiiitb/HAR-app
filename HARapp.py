@@ -148,16 +148,16 @@ def predict(model, categories, image):
     #fig=plt.figure()
     st.plotly_chart(fig)
     
+    buffer = io.StringIO()
+    fig.write_html(buffer, include_plotlyjs='cdn')
+    html_bytes = buffer.getvalue().encode()
     
-    plt.savefig(fn,dpi=100)
-    plt.show()
-    with open(fn, "rb") as img:
-        btn = st.download_button(
-        label="Download image",
-        data=img,
-        file_name=fn,
-        mime="image/png"
-    )
+    st.download_button(
+            label='Download HTML',
+            data=html_bytes,
+            file_name='stuff.html',
+            mime='text/html'
+        )
     
     st.write('Pie Chart of Probability')
     fig = px.pie(d, values='Probability of each class', names='Classes')
