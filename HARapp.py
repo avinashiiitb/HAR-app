@@ -37,11 +37,11 @@ def load_image():
           image_data = upload_file.getvalue()
           image1 = Image.open(io.BytesIO(image_data)) 
           
-          with open('.tempDir/04000000_1574696114_Raw_0.png', 'rb') as f:
+          with open(os.path.join(".tempDir/",uploadedfile.name), 'rb') as f:
                img_to_zip = f.read()
           img_open = Image.open(io.BytesIO(img_to_zip))
           st.write(img_open)
-          zipObj.writestr(zinfo_or_arcname='.tempDir/04000000_1574696114_Raw_0.png', data=img_to_zip)
+          zipObj.writestr(zinfo_or_arcname='os.path.join(".tempDir/",uploadedfile.name)', data=img_to_zip)
                 #zipObj.write(img_open)
           zipObj.close()
           ZipfileDotZip = "sample.zip"
